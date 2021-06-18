@@ -1,0 +1,124 @@
+body{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    display: grid;
+    grid-template-columns: 40% 60%;
+    height: 100vh;
+}
+
+.container > .formSection{
+    background-color: #D1D5DB;
+}
+
+.heading{
+    text-align: center;
+}
+
+form{
+    margin-left: 4rem;
+}
+
+.container > .listUsersSection{
+    background-color: #E5E7EB;
+
+}
+
+input[type="submit"]{
+    margin: 1.2rem 0rem;
+    border-radius: 10%;
+    padding: 0.5rem; 
+    border: none;
+    background-color: #6B7280;
+}
+
+form > input{
+    margin: 0.5rem 0rem;
+    margin-left: 1rem;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 7%;
+    width: 80%;
+    text-align: center;
+}
+
+form > select{
+    margin: 0.5rem 0rem;
+    margin-left: 1rem;
+    border: none;
+    padding: 0.4rem;
+    border-radius: 7%;
+}
+
+form > section{
+    margin: 0.5rem 0rem;
+    margin-left: 1rem;
+    border: none;
+    padding: 0.4rem;
+    border-radius: 7%;
+}
+
+#redirectLogin{
+    margin: 1.2rem 0rem;
+    border-radius: 10%;
+    padding: 0.5rem; 
+    border: none;
+    background-color: #6B7280;
+}
+
+#redirectSignUp{
+    margin: 1.2rem 0rem;
+    border-radius: 10%;
+    padding: 0.5rem; 
+    border: none;
+    background-color: #6B7280;
+}
+
+#loginInfo{
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#loginInfo > #basicInfo{
+    font-weight: bolder;
+}
+ 
+#logoutBtn{
+    border-radius: 10%;
+    padding: 0.5rem; 
+    border: none;
+    padding: 0.2rem;
+    background-color: #6B7280;
+}
+
+#userList{
+    list-style-type: none;
+}
+
+#userList > #listItem{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#defaultContent{
+    text-align: center;
+}
+
+#clearUserStorage{
+    border-radius: 10%;
+    padding: 0.5rem; 
+    border: none;
+    padding: 0.6rem;
+    background-color: #6B7280;
+}
+
+
+
+
+
+
