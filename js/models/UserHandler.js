@@ -40,7 +40,6 @@ export default class UserHandler{
 
             let session = null;
             userObjects.forEach((item) => {
-                console.log("item: ",item);
                 item = JSON.parse(window.atob(item));
                 if(item.username === userObject.username && userObject.password){
                     session = item;
@@ -64,9 +63,7 @@ export default class UserHandler{
 
     static isSessionStored = () => {
         let sessionStored = localStorage.getItem("session");
-        console.log("session: ",sessionStored);
         if(sessionStored !== 'null' && sessionStored !== null){
-            console.log("here");
             let validationUserObject = JSON.parse(window.atob(sessionStored));
             return validationUserObject;
         }
@@ -77,7 +74,6 @@ export default class UserHandler{
 
     static logoutSession = () => {
         let sessionStored = localStorage.getItem("session");
-        console.log("sessionStored");
         if(sessionStored){
             localStorage.setItem("session",null);
             alert("successful logout");
@@ -100,7 +96,6 @@ export default class UserHandler{
 
             let storedUserAccounts = JSON.parse(localStorage.getItem("userList"));
 
-            console.log("role: ",role);
             storedUserAccounts.forEach((account) => {
                 account = JSON.parse(window.atob(account));
                 if(role !== "admin" && account.role === role){
