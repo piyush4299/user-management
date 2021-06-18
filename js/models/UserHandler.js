@@ -5,11 +5,11 @@ export default class UserHandler{
         if(storedUserObjects){
             userObjects = JSON.parse(storedUserObjects);
 
-            userObjects.push(userObject);
+            userObjects.push(window.btoa(JSON.stringify(userObject)));
         }
         else{
             userObjects = [];
-            userObjects.push(userObject);
+            userObjects.push(window.btoa(JSON.stringify(userObject)));
         }
 
         localStorage.setItem("userList",JSON.stringify(userObjects));   
@@ -22,6 +22,7 @@ export default class UserHandler{
             let userObjects = JSON.parse(storedUserObjects);
 
             userObjects.forEach((item) => {
+                item = JSON.parse(window.atob(item));
                 if(item.username === userName){
                     stat = false;
                     return false;
@@ -39,6 +40,8 @@ export default class UserHandler{
 
             let session = null;
             userObjects.forEach((item) => {
+                console.log("item: ",item);
+                item = JSON.parse(window.atob(item));
                 if(item.username === userObject.username && userObject.password){
                     session = item;
                 }
@@ -46,7 +49,7 @@ export default class UserHandler{
 
 
             if(session){
-                localStorage.setItem("session",JSON.stringify(session));
+                localStorage.setItem("session",window.btoa(JSON.stringify(session)));
             }
             else{
                 return false;
@@ -62,8 +65,9 @@ export default class UserHandler{
     static isSessionStored = () => {
         let sessionStored = localStorage.getItem("session");
         console.log("session: ",sessionStored);
-        if(sessionStored !== undefined || sessionStored !== null){
-            let validationUserObject = JSON.parse(sessionStored);
+        if(sessionStored !== 'null' && sessionStored !== null){
+            console.log("here");
+            let validationUserObject = JSON.parse(window.atob(sessionStored));
             return validationUserObject;
         }
         else{
@@ -91,13 +95,14 @@ export default class UserHandler{
         let userList = [];
         let sessionStored = localStorage.getItem("session");
         if(sessionStored){
-            let storedSession = JSON.parse(sessionStored);
+            let storedSession = JSON.parse(window.atob(sessionStored));
             let role = storedSession.role;
 
             let storedUserAccounts = JSON.parse(localStorage.getItem("userList"));
 
             console.log("role: ",role);
             storedUserAccounts.forEach((account) => {
+                account = JSON.parse(window.atob(account));
                 if(role !== "admin" && account.role === role){
                     userList.push(account);
                 }

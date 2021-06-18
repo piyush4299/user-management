@@ -50,6 +50,7 @@ DOMHandler.formSection.addEventListener("submit",function(event){
 
     if(event.target && event.target.id == "signupForm"){
         validateSignUpForm(event.target);
+        setLoginForm();
     }
 
 });
